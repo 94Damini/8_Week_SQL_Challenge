@@ -1,5 +1,5 @@
 # 8_Week_SQL_Challenge
-This is 8 week Sql Challenge by Dany Ma completed by me👩.
+This is 8 week Sql Challenge virtual data apprenticeship by Dany Ma 👩.
 
 **All 8 Week SQL Challenge Case Studies:** 
 
@@ -21,3 +21,6 @@ Case Study #6 - Clique Bait
 Case Study #7 - Balanced Tree Clothing Co.
 
 Case Study #8 - Fresh Segments
+
+view more:
+https://8weeksqlchallenge.com/
