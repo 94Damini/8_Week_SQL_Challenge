@@ -1,11 +1,13 @@
-Introduction
+# :ramen: Case Study 1 - Danny's Diner
+
+## Introduction
 
 •	Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
 
 •	Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
 
 
-Problem Statement
+## Problem Statement
 
 •	Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
 
@@ -14,7 +16,7 @@ Problem Statement
 •	Danny has provided you with a sample of his overall customer data due to privacy issues - but he hopes that these examples are enough for you to write fully functioning SQL queries to help him answer his questions!
 
 
-Case Study Questions
+## Case Study Questions
 
 Each of the following case study questions can be answered using a single SQL statement:
 
@@ -30,7 +32,7 @@ Each of the following case study questions can be answered using a single SQL st
 10.	In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 
-Dataset
+## Dataset
 Danny has shared with you 3 key datasets for this case study:
 1.	Sales
 
