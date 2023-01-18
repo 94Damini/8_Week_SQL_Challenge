@@ -154,22 +154,28 @@ with cte_1 as
 --B	           2	                 sushi
 --B	           2	                 curry
 --B	           2	                 ramen
---C            3	                 ramen
+--C                3	                 ramen
  
 
  --Qus 6. Which item was purchased first by the customer after they became a member?
 
  with cte_2 as
- (select s.customer_id , s.order_date, m.join_date , me.product_name,  dense_rank() over(partition by s.customer_id order by s.order_date) as rn 
- from sales as s 
- inner join members as m 
- on s.customer_id = m.customer_id
- inner join menu as me
- on me.product_id = s.product_id
- where join_date < order_date
+ (select
+         s.customer_id , s.order_date, m.join_date , me.product_name,  dense_rank() over(partition by s.customer_id order by s.order_date) as rn 
+ from  
+      sales as s inner join members as m 
+ on 
+   s.customer_id = m.customer_id inner join menu as me
+ on 
+  me.product_id = s.product_id
+ where 
+      join_date < order_date
  
  )
- select customer_id ,   product_name from cte_2 where  rn = 1;
+ select
+      customer_id ,   product_name 
+ from
+      cte_2 where  rn = 1;
 
  --RESULT:
  --customer_id	product_name
@@ -180,16 +186,24 @@ with cte_1 as
 
  
  with cte_2 as
- (select s.customer_id , s.order_date, m.join_date , me.product_name,   dense_rank() over(partition by s.customer_id order by s.order_date desc) as rn 
- from sales as s 
- inner join members as m 
- on s.customer_id = m.customer_id
- inner join menu as me
- on me.product_id = s.product_id
- where join_date > order_date
+ (
+select
+     s.customer_id , s.order_date, m.join_date , me.product_name,   dense_rank() over(partition by s.customer_id order by s.order_date desc) as rn 
+ from 
+     sales as s inner join members as m 
+ on 
+    s.customer_id = m.customer_id inner join menu as me
+ on 
+   me.product_id = s.product_id
+ where 
+   join_date > order_date
  
  )
- select customer_id ,   product_name from cte_2 where  rn = 1;
+ select 
+      customer_id ,   product_name 
+ from 
+      cte_2 
+ where  rn = 1;
 
  --RESULT:
  --customer_id	product_name
@@ -201,23 +215,31 @@ with cte_1 as
  
  with cte_4 as
 (
- select s.customer_id , s.order_date, m.join_date , me.product_name, s.product_id ,me.price, dense_rank() over(partition by s.customer_id order by s.order_date desc) as rn 
- from sales as s 
- inner join members as m 
- on s.customer_id = m.customer_id
- inner join menu as me
- on me.product_id = s.product_id
- where join_date > order_date
+ select 
+      s.customer_id , s.order_date, m.join_date , me.product_name, s.product_id ,me.price, dense_rank() over(partition by s.customer_id order by s.order_date desc) as rn 
+ from 
+     sales as s inner join members as m 
+ on 
+  s.customer_id = m.customer_id inner join menu as me
+ on 
+   me.product_id = s.product_id
+ where
+      join_date > order_date
  )
- select customer_id, sum(price) as total_amount , count(product_id) as total_item from cte_4
- group by customer_id 
- order by  count(product_id), sum(price);
+ select
+       customer_id, sum(price) as total_amount , count(product_id) as total_item 
+ from 
+       cte_4
+ group by 
+       customer_id 
+ order by
+       count(product_id), sum(price);
 
 
   --RESULT:
   --customer_id	total_amount	total_item
   --   A	          25	            2
-  --   B	          40             	3
+  --   B	          40                3
 
 --Qus 9: If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
