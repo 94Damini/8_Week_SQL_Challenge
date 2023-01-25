@@ -1,4 +1,4 @@
-
+```
 --CREATE SCHEMA dannys_diner;
 
 CREATE TABLE sales (
@@ -6,7 +6,7 @@ CREATE TABLE sales (
   "order_date" DATE,
   "product_id" INTEGER
 );
-
+```
 INSERT INTO sales
   ("customer_id", "order_date", "product_id")
 VALUES
@@ -57,6 +57,7 @@ VALUES
   select * from members
 
    --Qus 1:  What is the total amount each customer spent at the restaurant? 
+   
    '''
    
 with cte as
