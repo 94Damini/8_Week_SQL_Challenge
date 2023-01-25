@@ -57,7 +57,7 @@ VALUES
   select * from members
 
    --Qus 1:  What is the total amount each customer spent at the restaurant? 
- 
+   '''
 with cte as
 (
 select 
@@ -71,6 +71,7 @@ group by
       customer_id
 order by 
       customer_id;
+	'''
 
   --RESULT 
   --customer_id A spent 76 rs 
